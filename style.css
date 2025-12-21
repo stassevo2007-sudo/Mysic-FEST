@@ -1,0 +1,1587 @@
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+html {
+    scroll-padding-top: 80px;
+    scroll-behavior: smooth
+}
+
+.form-group,.form-group input,.form-group select,.tickets-form {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box
+}
+
+body {
+    font-family: "Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fafafa;
+    padding-top: 70px
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.3);
+    z-index: 1000
+}
+
+.logo,.nav-menu a {
+    text-decoration: none;
+    color: #fff
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: color .3s ease
+}
+
+.logo:hover {
+    color: #fc0
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem
+}
+
+.nav-menu a {
+    font-weight: 500;
+    transition: all .3s ease;
+    padding: .5rem 1rem;
+    border-radius: 4px
+}
+
+.nav-menu a:hover {
+    background-color: #fc0;
+    color: #1a1a1a
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px
+}
+
+.burger span {
+    width: 28px;
+    height: 3px;
+    background-color: #fff;
+    transition: all .3s ease;
+    border-radius: 3px
+}
+
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px,8px)
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0
+}
+
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px,-8px)
+}
+
+@media (max-width:768px) {
+    .burger {
+        display: flex
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background-color: #1a1a1a;
+        width: 100%;
+        padding: 2rem;
+        gap: 1.5rem;
+        transition: right .3s ease;
+        box-shadow: 0 4px 20px rgba(0,0,0,.3)
+    }
+
+    .nav-menu.active {
+        right: 0
+    }
+
+    .nav-menu a {
+        text-align: center;
+        padding: 1rem
+    }
+}
+
+.banner {
+    height: 70vh;
+    min-height: clamp(320px,60vh,500px);
+    background: linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.8)),url(./img/bg-header.jpg)center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem
+}
+
+.banner h1 {
+    color: #fff;
+    font-size: 4rem;
+    text-shadow: 0 4px 20px rgba(0,0,0,.8);
+    max-width: 900px;
+    animation: fadeInUp 1s ease
+}
+
+@media (max-width:768px) {
+    .banner h1 {
+        font-size: 2.5rem
+    }
+}
+
+.headline-artists {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr))
+}
+
+.artist-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    background-color: #fff;
+    transition: all .4s cubic-bezier(.25,.46,.45,.94)
+}
+
+.artist-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,.2)
+}
+
+.artist-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block
+}
+
+.artist-info {
+    padding: 2rem
+}
+
+.artist-info h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #1a1a1a
+}
+
+.artist-info p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6
+}
+
+.schedule {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 2rem
+}
+
+.schedule-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap
+}
+
+.tab-btn {
+    background: #fff;
+    border: 3px solid #e0e0e0;
+    border-radius: 16px;
+    padding: 1.25rem 2rem;
+    cursor: pointer;
+    transition: all .3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    min-width: 140px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.05)
+}
+
+.tab-btn.active,.tab-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.1);
+    border-color: #fc0
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg,#fc0,#f90);
+    color: #1a1a1a;
+    box-shadow: 0 8px 25px rgba(255,204,0,.3)
+}
+
+.tab-date {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: .5px
+}
+
+.schedule-table strong,.tab-btn.active .tab-date {
+    color: #1a1a1a
+}
+
+.schedule-table th,.tab-day {
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+    font-weight: 500
+}
+
+.tab-btn.active .tab-day {
+    color: #1a1a1a;
+    font-weight: 600
+}
+
+.schedule-content {
+    display: none;
+    animation: fadeIn .5s ease
+}
+
+.schedule-content.active {
+    display: block
+}
+
+.day-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: linear-gradient(135deg,#fff 0,#fafafa 100%);
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05)
+}
+
+.day-header h3 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: .5rem
+}
+
+.day-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    font-style: italic
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1)
+}
+
+.schedule-table thead {
+    background: linear-gradient(135deg,#1a1a1a 0,#2a2a2a 100%)
+}
+
+.schedule-table th {
+    padding: 1.5rem;
+    text-align: left;
+    color: #fff;
+    font-weight: 600
+}
+
+.schedule-table tbody tr {
+    background-color: #fff;
+    transition: all .3s ease;
+    border-bottom: 1px solid #f0f0f0
+}
+
+.schedule-table tbody tr:hover {
+    background-color: #fff9e6;
+    transform: scale(1.01);
+    box-shadow: 0 4px 15px rgba(0,0,0,.08)
+}
+
+.schedule-table tbody tr:last-child {
+    border-bottom: none
+}
+
+.schedule-table td {
+    padding: 1.5rem;
+    vertical-align: top
+}
+
+.schedule-table td:first-child {
+    font-weight: 700;
+    color: #fc0;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    background: linear-gradient(135deg,#fff 0,#fffef8 100%)
+}
+
+.schedule-table td:nth-child(2) {
+    font-weight: 600;
+    color: #1a1a1a;
+    min-width: 200px
+}
+
+.schedule-table td:nth-child(3) {
+    color: #555;
+    line-height: 1.6
+}
+
+@media (max-width:768px) {
+    .schedule {
+        padding: 0 1rem
+    }
+
+    .schedule h2 {
+        font-size: 2rem
+    }
+
+    .schedule-tabs {
+        gap: .75rem
+    }
+
+    .tab-btn {
+        padding: 1rem 1.5rem;
+        min-width: 110px
+    }
+
+    .tab-date {
+        font-size: 1rem
+    }
+
+    .tab-day {
+        font-size: .8rem
+    }
+
+    .day-header {
+        padding: 1.5rem
+    }
+
+    .day-header h3 {
+        font-size: 1.5rem
+    }
+
+    .day-subtitle {
+        font-size: 1rem
+    }
+
+    .schedule-table {
+        display: block;
+        border-radius: 0;
+        box-shadow: none
+    }
+
+    .schedule-table thead {
+        display: none
+    }
+
+    .schedule-table tbody {
+        display: block
+    }
+
+    .schedule-table tr {
+        display: block;
+        margin-bottom: 1.5rem;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0,0,0,.1);
+        border-bottom: none!important
+    }
+
+    .schedule-table td {
+        display: block;
+        padding: 1rem 1.5rem;
+        text-align: left;
+        border-bottom: 1px solid #f0f0f0
+    }
+
+    .schedule-table td:last-child {
+        border-bottom: none
+    }
+
+    .schedule-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: #1a1a1a;
+        display: block;
+        margin-bottom: .5rem;
+        font-size: .85rem;
+        text-transform: uppercase;
+        letter-spacing: .5px
+    }
+
+    .schedule-table td:first-child {
+        background: linear-gradient(135deg,#fc0,#f90);
+        color: #1a1a1a!important;
+        font-size: 1.2rem;
+        font-weight: 700
+    }
+
+    .schedule-table td:first-child::before {
+        color: #1a1a1a
+    }
+}
+
+@media (max-width:480px) {
+    .schedule-tabs {
+        flex-direction: column;
+        align-items: stretch
+    }
+
+    .tab-btn {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        padding: 1rem
+    }
+
+    .tab-date,.tab-day {
+        display: inline
+    }
+
+    .tab-day::before {
+        content: " • ";
+        margin: 0 .5rem
+    }
+
+    .day-header h3 {
+        font-size: 1.3rem
+    }
+
+    .schedule-table td {
+        padding: .75rem 1rem
+    }
+}
+
+.buy-tickets h2,.participation-terms h2,.schedule h2,.venue-map h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem
+}
+
+.helper-link {
+    display: inline-block;
+    margin-top: .5rem;
+    font-size: .9rem;
+    color: #666;
+    text-decoration: none;
+    transition: color .3s ease
+}
+
+.helper-link:hover {
+    color: #fc0
+}
+
+.buy-tickets h2::after,.festival-dates h2::after,.participation-terms h2::after,.schedule h2::after,.ticket-types h2::after,.venue-map h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right,#fc0,#f90);
+    border-radius: 2px
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    scrollbar-width: thin;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1)
+}
+
+td,th {
+    padding: 1.5rem;
+    text-align: left
+}
+
+th {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px
+}
+
+td {
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0
+}
+
+tr:hover td {
+    background-color: #fff9e6
+}
+
+@media (max-width:768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap
+    }
+
+    td,th {
+        padding: 1rem;
+        font-size: .9rem
+    }
+}
+
+.buy-tickets,.participation-terms,.venue-map {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 2rem
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    border: 0;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15)
+}
+
+.participation-terms ol {
+    counter-reset: item;
+    list-style: none;
+    display: grid;
+    gap: 1.5rem
+}
+
+.participation-terms li {
+    position: relative;
+    padding: 1.5rem 1.5rem 1.5rem 5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    font-size: 1.1rem;
+    color: #444;
+    transition: all .3s ease
+}
+
+.participation-terms li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.15)
+}
+
+.participation-terms li::before {
+    content: counter(item);
+    counter-increment: item;
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg,#fc0,#f90);
+    color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(255,204,0,.3)
+}
+
+.tickets-container {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.1);
+    padding: 3rem
+}
+
+.tickets-form {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 2rem
+}
+
+.checkbox-group,.submit-btn {
+    grid-column: 1/-1
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333
+}
+
+.form-group input,.form-group select {
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all .3s ease
+}
+
+.form-group input:focus,.form-group select:focus {
+    outline: 0;
+    border-color: #fc0;
+    box-shadow: 0 0 0 4px rgba(255,204,0,.1)
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: .75rem
+}
+
+.checkbox-group input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer
+}
+
+.submit-btn {
+    background: linear-gradient(135deg,#fc0,#f90);
+    color: #1a1a1a;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 1.2rem 3rem;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .3s ease;
+    box-shadow: 0 4px 15px rgba(255,204,0,.3)
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255,204,0,.4)
+}
+
+.tickets-info {
+    background: #f8f8f8;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid #fc0
+}
+
+.tickets-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a
+}
+
+.tickets-info ul {
+    list-style: none
+}
+
+.tickets-info li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    color: #555;
+    line-height: 1.6
+}
+
+.tickets-info li::before {
+    content: "✓";
+    color: #fc0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0
+}
+
+@media (max-width:768px) {
+    .tickets-container {
+        padding: 2rem
+    }
+
+    .tickets-form {
+        grid-template-columns: 1fr;
+        gap: 1.75rem
+    }
+
+    .checkbox-group,.submit-btn {
+        grid-column: auto
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    z-index: 2000;
+    animation: fadeIn .3s ease
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.modal-content {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,.3);
+    animation: slideUp .3s ease;
+    max-height: 90vh;
+    overflow-y: auto
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0
+}
+
+.modal-header h3 {
+    font-size: 1.8rem;
+    color: #1a1a1a
+}
+
+.close-modal,footer a {
+    transition: color .3s ease
+}
+
+.close-modal {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+    background: 0 0;
+    border: 0;
+    line-height: 1
+}
+
+.close-modal:hover {
+    color: #333
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem
+}
+
+.payment-form .form-group input {
+    width: 100%
+}
+
+.card-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem
+}
+
+.confirm-btn {
+    background: linear-gradient(135deg,#4caf50,#45a049);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1.2rem;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .3s ease;
+    margin-top: 1rem
+}
+
+.confirm-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76,175,80,.4)
+}
+
+footer {
+    background-color: #1a1a1a;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-top: 5rem
+}
+
+footer p {
+    margin: .5rem 0;
+    color: #aaa
+}
+
+footer a {
+    color: #fc0;
+    text-decoration: none
+}
+
+footer,footer a:hover {
+    color: #fff
+}
+
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem
+}
+
+@media (max-width:480px) {
+    body {
+        padding-top: 60px
+    }
+
+    .header {
+        padding: .75rem 1rem
+    }
+
+    .artist-info h3,.logo {
+        font-size: 1.3rem
+    }
+
+    .banner {
+        min-height: 400px;
+        padding: 0 1rem
+    }
+
+    .banner h1 {
+        font-size: 2rem;
+        line-height: 1.2
+    }
+
+    .headline-artists {
+        margin: 3rem auto;
+        padding: 0 1rem;
+        gap: 1.5rem
+    }
+
+    .artist-card img {
+        height: 200px
+    }
+
+    .artist-info {
+        padding: 1.5rem
+    }
+
+    iframe {
+        height: 350px;
+        border-radius: 12px
+    }
+
+    .participation-terms li {
+        padding: 1.2rem 1.2rem 1.2rem 4rem;
+        font-size: 1rem
+    }
+
+    .participation-terms li::before {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+        left: 1rem
+    }
+
+    .tickets-form {
+        grid-template-columns: 1fr
+    }
+
+    .tickets-container {
+        padding: 1rem
+    }
+
+    .form-group label {
+        font-size: .9rem
+    }
+
+    .form-group input,.form-group select {
+        font-size: .9rem;
+        padding: .75rem
+    }
+
+    .checkbox-group label {
+        line-height: 1.3
+    }
+
+    .confirm-btn,.submit-btn {
+        font-size: 1.05rem;
+        padding: 1rem
+    }
+
+    footer {
+        padding: 2rem 1rem
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        gap: 1rem
+    }
+}
+
+@media (max-width:360px) {
+    .logo {
+        font-size: 1.1rem
+    }
+
+    .banner h1 {
+        font-size: 1.7rem
+    }
+
+    .nav-menu a,td,th {
+        font-size: 1rem;
+        padding: .75rem
+    }
+
+    .artist-info h3 {
+        font-size: 1.2rem
+    }
+
+    .artist-info p {
+        font-size: .95rem
+    }
+
+    td,th {
+        font-size: .85rem
+    }
+
+    .form-group input,.form-group select {
+        padding: .8rem;
+        font-size: .95rem
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+        border-radius: 14px
+    }
+
+    .modal-header h3 {
+        font-size: 1.4rem
+    }
+}
+
+@media (max-width:320px) {
+    .banner {
+        min-height: 340px
+    }
+
+    .banner h1 {
+        font-size: 1.5rem
+    }
+
+    .buy-tickets h2,.participation-terms h2,.schedule h2,.venue-map h2 {
+        font-size: 1.7rem
+    }
+
+    .participation-terms li {
+        padding-left: 3.5rem
+    }
+
+    .participation-terms li::before {
+        left: .8rem;
+        width: 2.2rem;
+        height: 2.2rem
+    }
+
+    .tickets-container {
+        padding: .75rem
+    }
+
+    .form-group input,.form-group select {
+        padding: .7rem
+    }
+
+    .submit-btn {
+        font-size: .95rem;
+        padding: .85rem
+    }
+
+    footer p {
+        font-size: .9rem
+    }
+}
+
+.festival-dates {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 2rem
+}
+
+.festival-dates h2,.ticket-types h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem
+}
+
+.dates-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 2rem;
+    margin-bottom: 3rem
+}
+
+.date-card {
+    background: linear-gradient(135deg,#fff 0,#fafafa 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 3px solid transparent;
+    transition: all .4s ease;
+    position: relative;
+    overflow: hidden
+}
+
+.date-card::before,.ticket-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(to right,#fc0,#f90)
+}
+
+.date-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,.15);
+    border-color: #fc0
+}
+
+.date-number {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1;
+    margin-bottom: .5rem;
+    background: linear-gradient(135deg,#fc0,#f90);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text
+}
+
+.date-info {
+    margin-bottom: 1.5rem
+}
+
+.date-month {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: .25rem
+}
+
+.date-day {
+    font-size: 1rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px
+}
+
+.date-program {
+    background: #f8f8f8;
+    padding: .75rem 1.5rem;
+    border-radius: 20px;
+    font-size: .9rem;
+    color: #555;
+    font-weight: 500
+}
+
+.comparison-table-wrapper {
+    overflow-x: auto;
+    margin: 3rem 0;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.1)
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden
+}
+
+.comparison-table thead {
+    background: linear-gradient(135deg,#1a1a1a 0,#2a2a2a 100%)
+}
+
+.comparison-table th {
+    padding: 2rem 1.5rem;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 3px solid #fc0
+}
+
+.comparison-table th.feature-column {
+    text-align: left;
+    background: #1a1a1a
+}
+
+.comparison-table th.ticket-column {
+    min-width: 180px
+}
+
+.ticket-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .75rem
+}
+
+.ticket-badge-small {
+    display: inline-block;
+    padding: .4rem 1rem;
+    border-radius: 20px;
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px
+}
+
+.ticket-column.standard .ticket-badge-small {
+    background: linear-gradient(135deg,#fc0,#f90);
+    color: #1a1a1a
+}
+
+.ticket-column.vip .ticket-badge-small {
+    background: linear-gradient(135deg,#9333ea,#c026d3);
+    color: #fff
+}
+
+.ticket-column.full .ticket-badge-small {
+    background: linear-gradient(135deg,#dc2626,#f97316);
+    color: #fff;
+    position: relative
+}
+
+.ticket-badge-small.popular::after {
+    content: "⭐";
+    margin-left: .5rem
+}
+
+.ticket-price-small {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff
+}
+
+.ticket-price-small span {
+    font-size: .85rem;
+    font-weight: 400;
+    color: #ccc;
+    display: block;
+    margin-top: .25rem
+}
+
+.comparison-table tbody tr {
+    transition: background-color .3s ease
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background-color: #fafafa
+}
+
+.comparison-table tbody tr:hover {
+    background-color: #fff9e6
+}
+
+.comparison-table td {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e0e0e0
+}
+
+.feature-name {
+    font-weight: 500;
+    color: #333;
+    text-align: left
+}
+
+.feature-check {
+    text-align: center
+}
+
+.check,.cross {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1.2rem
+}
+
+.check {
+    background: #4caf50;
+    color: #fff
+}
+
+.cross {
+    background: #e0e0e0;
+    color: #999
+}
+
+.ticket-types {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 2rem
+}
+
+.ticket-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 2rem;
+    margin: 3rem 0
+}
+
+.ticket-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    transition: all .4s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column
+}
+
+.ticket-card.vip::before {
+    background: linear-gradient(to right,#9333ea,#c026d3)
+}
+
+.ticket-card.full::before {
+    background: linear-gradient(to right,#dc2626,#f97316)
+}
+
+.ticket-card.recommended {
+    border: 3px solid #fc0
+}
+
+.recommended-badge,.ticket-badge {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px
+}
+
+.recommended-badge {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: linear-gradient(135deg,#fc0,#f90);
+    color: #1a1a1a;
+    padding: .5rem 3rem;
+    font-size: .75rem;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 10px rgba(0,0,0,.2)
+}
+
+.ticket-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,.15)
+}
+
+.ticket-badge {
+    display: inline-block;
+    padding: .5rem 1rem;
+    border-radius: 20px;
+    font-size: .85rem;
+    margin-bottom: 1rem;
+    width: fit-content
+}
+
+.ticket-card.standard .ticket-badge {
+    background: linear-gradient(135deg,#fff3cd,#fc0);
+    color: #1a1a1a
+}
+
+.ticket-card.vip .ticket-badge {
+    background: linear-gradient(135deg,#f3e8ff,#9333ea);
+    color: #fff
+}
+
+.ticket-card.full .ticket-badge {
+    background: linear-gradient(135deg,#fee2e2,#dc2626);
+    color: #fff
+}
+
+.ticket-card h3,.ticket-price {
+    font-size: 1.8rem;
+    margin-bottom: .5rem;
+    color: #1a1a1a
+}
+
+.ticket-price {
+    font-size: 2.5rem;
+    font-weight: 700
+}
+
+.ticket-price span {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 400
+}
+
+.ticket-subtitle {
+    color: #666;
+    font-size: .95rem;
+    margin-bottom: 1.5rem;
+    font-style: italic
+}
+
+.savings-badge {
+    background: linear-gradient(135deg,#4caf50,#45a049);
+    color: #fff;
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    font-size: .9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    width: fit-content;
+    box-shadow: 0 4px 10px rgba(76,175,80,.3)
+}
+
+.ticket-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex-grow: 1
+}
+
+.ticket-features li {
+    padding: .75rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    color: #555;
+    font-size: .95rem
+}
+
+.ticket-features li:last-child {
+    border-bottom: none
+}
+
+.ticket-features li::before {
+    content: "✓";
+    color: #4caf50;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0
+}
+
+.ticket-features li.unavailable {
+    color: #ccc
+}
+
+.ticket-features li.unavailable::before {
+    content: "×";
+    color: #ccc
+}
+
+.ticket-btn {
+    display: block;
+    background: linear-gradient(135deg,#fc0,#f90);
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: all .3s ease;
+    box-shadow: 0 4px 15px rgba(255,204,0,.3);
+    margin-top: auto
+}
+
+.ticket-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255,204,0,.4)
+}
+
+.ticket-card.vip .ticket-btn {
+    background: linear-gradient(135deg,#9333ea,#c026d3);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(147,51,234,.3)
+}
+
+.ticket-card.vip .ticket-btn:hover {
+    box-shadow: 0 6px 20px rgba(147,51,234,.4)
+}
+
+.ticket-card.full .ticket-btn {
+    background: linear-gradient(135deg,#dc2626,#f97316);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(220,38,38,.3)
+}
+
+.ticket-card.full .ticket-btn:hover {
+    box-shadow: 0 6px 20px rgba(220,38,38,.4)
+}
+
+.ticket-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 2rem;
+    margin-top: 4rem
+}
+
+.info-card {
+    background: linear-gradient(135deg,#fff 0,#fafafa 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    transition: all .3s ease;
+    border: 2px solid transparent
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    border-color: #fc0
+}
+
+.info-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem
+}
+
+.info-card h4 {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    margin-bottom: .75rem
+}
+
+.info-card p {
+    color: #666;
+    font-size: .95rem;
+    line-height: 1.6
+}
+
+@media (max-width:1024px) {
+    .comparison-table-wrapper {
+        display: none
+    }
+}
+
+@media (min-width:1025px) {
+    .ticket-cards {
+        display: none
+    }
+}
+
+@media (max-width:768px) {
+    .dates-container {
+        grid-template-columns: 1fr
+    }
+
+    .date-number {
+        font-size: 4rem
+    }
+
+    .ticket-info-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem
+    }
+
+    .festival-dates h2,.ticket-types h2 {
+        font-size: 2rem
+    }
+}
+
+@media (max-width:480px) {
+    .date-card {
+        padding: 1.5rem
+    }
+
+    .date-number {
+        font-size: 3.5rem
+    }
+
+    .date-month {
+        font-size: 1.3rem
+    }
+
+    .ticket-card {
+        padding: 2rem 1.5rem
+    }
+
+    .ticket-price {
+        font-size: 2rem
+    }
+
+    .recommended-badge {
+        font-size: .65rem;
+        padding: .4rem 2.5rem
+    }
+}

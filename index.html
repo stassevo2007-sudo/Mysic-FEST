@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ru" >
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Музыкальный фестиваль под открытым небом</title>
+  <meta
+    name="description"
+    content="Официальный сайт музыкального фестиваля под открытым небом: программа, хедлайнеры, место проведения и условия участия"
+  >
+  <link
+    rel="stylesheet"
+    href="./style.css"
+  >
+  <script src="./main.js" defer></script>
+</head>
+<body>
+
+<header class="header">
+  <a
+    href="#"
+    class="logo"
+  >Музыкальный фестиваль
+  </a>
+  <nav>
+    <ul class="nav-menu">
+      <li>
+        <a href="#headline-artists">Хедлайнеры</a>
+      </li>
+      <li>
+        <a href="#schedule">Программа</a>
+      </li>
+      <li>
+        <a href="#venue-map">Место</a>
+      </li>
+      <li>
+        <a href="#participation-terms">Условия</a>
+      </li>
+      <li>
+
+        <a href="#buy-tickets">Билеты</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<section class="banner">
+  <h1>Музыкальный фестиваль под открытым небом</h1>
+</section>
+
+<section
+  id="headline-artists"
+  class="headline-artists"
+>
+  <div class="artist-card">
+    <img
+      src="./img/1.jpg"
+      alt="Артист 1"
+    >
+    <div class="artist-info">
+      <h3>Артист 1</h3>
+      <p>Талантливый исполнитель в жанре инди-поп с уникальным звучанием и запоминающимися текстами. Выступает на крупных фестивалях последние 5 лет.</p>
+    </div>
+  </div>
+  <div class="artist-card">
+    <img
+      src="./img/2.jpg"
+      alt="Артист 2"
+    >
+    <div class="artist-info">
+      <h3>Артист 2</h3>
+      <p>Известный электронный музыкант и продюсер, чьи треки звучат на радиостанциях по всему миру. Мастер живых сетов и импровизаций.</p>
+    </div>
+  </div>
+  <div class="artist-card">
+    <img
+      src="./img/3.jpg"
+      alt="Артист 3"
+    >
+    <div class="artist-info">
+      <h3>Артист 3</h3>
+      <p>Фолк-исполнитель с глубоким голосом и авторскими композициями, вдохновлёнными народными мотивами. Лауреат музыкальных премий.</p>
+    </div>
+  </div>
+</section>
+
+<section id="schedule" class="schedule">
+  <h2>Программа фестиваля</h2>
+
+  <!-- Переключатель дней -->
+  <div class="schedule-tabs">
+    <button class="tab-btn active" data-day="day1">
+      <span class="tab-date">15 июля</span>
+      <span class="tab-day">Пятница</span>
+    </button>
+    <button class="tab-btn" data-day="day2">
+      <span class="tab-date">16 июля</span>
+      <span class="tab-day">Суббота</span>
+    </button>
+    <button class="tab-btn" data-day="day3">
+      <span class="tab-date">17 июля</span>
+      <span class="tab-day">Воскресенье</span>
+    </button>
+  </div>
+
+  <!-- День 1: Пятница -->
+  <div class="schedule-content active" data-day="day1">
+    <div class="day-header">
+      <h3>15 июля — День открытия</h3>
+      <p class="day-subtitle">Инди-рок и альтернатива</p>
+    </div>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>Время</th>
+          <th>Исполнитель</th>
+          <th>Описание</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Время">18:00</td>
+          <td data-label="Исполнитель"><strong>Открытие фестиваля</strong></td>
+          <td data-label="Описание">Приветственное слово организаторов и специальный перформанс от приглашённых артистов.</td>
+        </tr>
+        <tr>
+          <td data-label="Время">19:00</td>
+          <td data-label="Исполнитель"><strong>Артист 1</strong></td>
+          <td data-label="Описание">Инди-поп хиты с уникальным звучанием. Живое исполнение с полной группой.</td>
+        </tr>
+        <tr>
+          <td data-label="Время">20:30</td>
+          <td data-label="Исполнитель"><strong>Группа "Звёздная пыль"</strong></td>
+          <td data-label="Описание">Альтернативный рок с элементами фолка. Презентация нового альбома.</td>
+        </tr>
+        <tr>
+          <td data-label="Время">22:00</td>
+          <td data-label="Исполнитель"><strong>Indie DJ Set</strong></td>
+          <td data-label="Описание">Танцевальные ремиксы инди-хитов последних лет.</td>
+        </tr>
+        <tr>
+          <td data-label="Время">23:30</td>
+          <td data-label="Исполнитель"><strong>Закрытие дня</strong></td>
+          <td data-label="Описание">Джем-сейшн артистов дня и световое шоу.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- День 2: Суббота -->
+  <div class="schedule-content" data-day="day2">
+    <div class="day-header">
+      <h3>16 июля — Главный день</h3>
+      <p class="day-subtitle">Электроника и хедлайнеры</p>
+    </div>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>Время</th>
+          <th>Исполнитель</th>
+          <th>Описание</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Время">17:00</td>
+          <td data-label="Исполнитель"><strong>Warm-up DJ</strong></td>
+          <td data-label="Описание">Мягкий старт вечера с ambient и chillout треками.</td>
+        </tr>
+        <tr>
+          <td data-label="Время">18:30</td>
+          <td data-label="Исполнитель"><strong>Артист 2</strong></td>
+          <td data-label="Описание">Электронный музыкант с мировым именем. Эксклюзивный live-сет с визуальным шоу.</td>
+        </tr>
+        <tr>
+          <td data-label="Время">20:30</td>
+          <td data-label="Исполнитель"><strong>Группа "Электрошок"</strong></td>
+          <td data-label="Описание">Синти-поп и электро-рок. Хиты 2000-х и новые треки.</td>
+        </tr>
+        <tr>
+          <td data-label="Время">22:30</td>
+          <td data-label="Исполнитель"><strong>Главный хедлайнер</strong></td>
+          <td data-label="Описание">Топовый DJ с мировой известностью. 2-часовой сет с лазерным шоу.</td>
+        </tr>
+        <tr>
+          <td data-label="Время">00:30</td>
+          <td data-label="Исполнитель"><strong>After Party</strong></td>
+          <td data-label="Описание">Продолжение танцев до утра в специальной зоне.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- День 3: Воскресенье -->
+  <div class="schedule-content" data-day="day3">
+    <div class="day-header">
+      <h3>17 июля — День закрытия</h3>
+      <p class="day-subtitle">Фолк и акустика</p>
+    </div>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>Время</th>
+          <th>Исполнитель</th>
+          <th>Описание</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Время">16:00</td>
+          <td data-label="Исполнитель"><strong>Фолк-группа "Ветер"</strong></td>
+          <td data-label="Описание">Традиционная народная музыка с современной аранжировкой.</td>
+        </tr>
+        <tr>
+          <td data-label="Время">17:30</td>
+          <td data-label="Исполнитель"><strong>Артист 3</strong></td>
+          <td data-label="Описание">Авторская песня и глубокие тексты. Акустический сет с историями.</td>
+        </tr>
+        <tr>
+          <td data-label="Время">19:00</td>
+          <td data-label="Исполнитель"><strong>Солист "Голос леса"</strong></td>
+          <td data-label="Описание">Эксклюзивный сет с редкими композициями и народными инструментами.</td>
+        </tr>
+        <tr>
+          <td data-label="Время">20:30</td>
+          <td data-label="Исполнитель"><strong>Большой финал</strong></td>
+          <td data-label="Описание">Совместное выступление всех артистов фестиваля.</td>
+        </tr>
+        <tr>
+          <td data-label="Время">22:00</td>
+          <td data-label="Исполнитель"><strong>Закрытие фестиваля</strong></td>
+          <td data-label="Описание">Грандиозный фейерверк и прощальная речь организаторов.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<section
+  id="venue-map"
+  class="venue-map"
+>
+  <h2>Где проходит фестиваль</h2>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.368892318734!2d37.61556431582543!3d55.75362998055683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54aaefde6b3ad%3A0x4c2c0ca8b6b976df!2z0JzQvtGB0LrQsNGPINGC0LXQu9GM0L3RhtGPINC-0LHQuyNCy0YHQutCy0LjQtSDRgdGC0LLQuNGC0YM!5e0!3m2!1sru!2sru!4v1632176592528!5m2!1sru!2sru"
+    allowfullscreen=""
+    loading="lazy"
+    title="Карта места проведения фестиваля"
+  ></iframe>
+</section>
+
+<section
+  id="participation-terms"
+  class="participation-terms"
+>
+  <h2>Условия участия</h2>
+  <ol>
+    <li>Вход на фестиваль бесплатный детям до 7 лет</li>
+    <li>Мероприятие проводится под открытым небом — учитывайте погодные условия при планировании визита.</li>
+    <li>Рекомендуется удобная обувь и одежда по погоде (вечером может быть прохладно).</li>
+    <li>Возьмите с собой фонарик или используйте подсветку телефона для вечернего времени.</li>
+    <li>На территории фестиваля работают точки питания и продажи напитков (оплата наличными и картой).</li>
+    <li>Запрещено проносить алкогольные напитки, стеклянные ёмкости и опасные предметы.</li>
+    <li>Дети до 12 лет допускаются только в сопровождении взрослых.</li>
+    <li>Парковка для автомобилей расположена в 500 м от места проведения (платная).</li>
+  </ol>
+</section>
+
+<section id="ticket-types" class="ticket-types">
+  <h2>Выберите свой билет</h2>
+
+  <!-- Таблица сравнения -->
+  <div class="comparison-table-wrapper">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th class="feature-column">Преимущества</th>
+          <th class="ticket-column standard">
+            <div class="ticket-header">
+              <span class="ticket-badge-small">Стандарт</span>
+              <div class="ticket-price-small">1500₽<span>/день</span></div>
+            </div>
+          </th>
+          <th class="ticket-column vip">
+            <div class="ticket-header">
+              <span class="ticket-badge-small">VIP</span>
+              <div class="ticket-price-small">3500₽<span>/день</span></div>
+            </div>
+          </th>
+          <th class="ticket-column full">
+            <div class="ticket-header">
+              <span class="ticket-badge-small popular">Популярный</span>
+              <div class="ticket-price-small">6000₽<span>/все дни</span></div>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="feature-name">Доступ к общей зоне</td>
+          <td class="feature-check"><span class="check">✓</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Все выступления</td>
+          <td class="feature-check"><span class="check">✓</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">VIP-зона с лучшим обзором</td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Вход без очереди</td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Комфортная зона отдыха</td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Welcome-drink</td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Приоритет в точках питания</td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Доступ на все 3 дня</td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Meet & Greet с артистами</td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Backstage-зона</td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Памятный подарок</td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Приоритет на 2026 год</td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="cross">×</span></td>
+          <td class="feature-check"><span class="check">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Карточки билетов (для мобильных) -->
+  <div class="ticket-cards">
+    <div class="ticket-card standard">
+      <span class="ticket-badge">Стандарт</span>
+      <h3>Стандартный</h3>
+      <div class="ticket-price">1500₽ <span>/ 1 день</span></div>
+      <div class="ticket-subtitle">Идеально для одного дня</div>
+      <ul class="ticket-features">
+        <li>Доступ к общей зоне</li>
+        <li>Вход на весь день</li>
+        <li>Доступ ко всем выступлениям</li>
+        <li class="unavailable">VIP-зона</li>
+        <li class="unavailable">Отдельный вход</li>
+        <li class="unavailable">Backstage</li>
+      </ul>
+      <a href="#buy-tickets" class="ticket-btn">Выбрать</a>
+    </div>
+
+    <div class="ticket-card vip">
+      <span class="ticket-badge">VIP</span>
+      <h3>VIP</h3>
+      <div class="ticket-price">3500₽ <span>/ 1 день</span></div>
+      <div class="ticket-subtitle">Комфорт и привилегии</div>
+      <ul class="ticket-features">
+        <li>Все преимущества стандартного</li>
+        <li>VIP-зона с лучшим обзором</li>
+        <li>Вход без очереди</li>
+        <li>Приоритет в точках питания</li>
+        <li>Welcome-drink бесплатно</li>
+        <li>Комфортная зона отдыха</li>
+      </ul>
+      <a href="#buy-tickets" class="ticket-btn">Выбрать</a>
+    </div>
+
+    <div class="ticket-card full recommended">
+      <div class="recommended-badge">🔥 Лучшее предложение</div>
+      <span class="ticket-badge">Полный</span>
+      <h3>Полный абонемент</h3>
+      <div class="ticket-price">6000₽ <span>/ все 3 дня</span></div>
+      <div class="ticket-subtitle">Максимум впечатлений</div>
+      <div class="savings-badge">Экономия 3000₽</div>
+      <ul class="ticket-features">
+        <li>Все преимущества VIP</li>
+        <li>Доступ на все 3 дня фестиваля</li>
+        <li>Meet & Greet с артистами</li>
+        <li>Backstage-зона (по расписанию)</li>
+        <li>Памятный подарок</li>
+        <li>Приоритет на следующий год</li>
+      </ul>
+      <a href="#buy-tickets" class="ticket-btn">Выбрать</a>
+    </div>
+  </div>
+
+  <!-- Дополнительная информация -->
+  <div class="ticket-info-grid">
+    <div class="info-card">
+      <div class="info-icon">🎫</div>
+      <h4>Электронные билеты</h4>
+      <p>Получите билет на email сразу после оплаты. Покажите QR-код при входе.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">↩️</div>
+      <h4>Возврат за 48 часов</h4>
+      <p>Вернём деньги без вопросов, если планы изменились.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">👶</div>
+      <h4>Дети до 7 лет бесплатно</h4>
+      <p>Билет не требуется. Просто приходите с детьми.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🎁</div>
+      <h4>Групповые скидки</h4>
+      <p>При покупке от 5 билетов — скидка 10%. Свяжитесь с нами.</p>
+    </div>
+  </div>
+</section>
+
+<section id="buy-tickets" class="buy-tickets">
+  <div class="tickets-container">
+    <h2>Купить билеты</h2>
+    <form class="tickets-form" id="ticketForm">
+      <div class="form-group">
+        <label for="ticket-type">Тип билета:</label>
+        <select id="ticket-type" name="ticket-type" required>
+          <option value="" selected hidden>Выберите тип билета</option>
+          <option value="standard">Стандартный (1 день на выбор) — 1500₽</option>
+          <option value="vip">VIP (1 день на выбор) — 3500₽</option>
+          <option value="full">Полный абонемент (все 3 дня) — 6000₽</option>
+        </select>
+        <a href="#ticket-types" class="helper-link">
+          ❓ В чём отличия между билетами?
+        </a>
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">Количество:</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" inputmode="numeric" required>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Ваше имя:</label>
+        <input type="text" id="name" name="name" placeholder="Иван Иванов" inputmode="text" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="example@example.com" inputmode="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Телефон:</label>
+        <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" inputmode="tel" required>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="subscribe" name="subscribe" checked>
+        <label for="subscribe">Получать новости фестиваля</label>
+      </div>
+
+      <button type="submit" class="submit-btn">Оформить заказ</button>
+    </form>
+
+    <div class="tickets-info">
+      <h3>Важно знать:</h3>
+      <ul>
+        <li>Билеты доступны в электронном виде — отправим на email сразу после оплаты.</li>
+        <li><strong>Однодневные билеты:</strong> При первом входе QR-код будет отсканирован и активирован на текущий день. Повторный вход в другие дни невозможен.</li>
+        <li><strong>Полный абонемент:</strong> QR-код сканируется каждый день, давая доступ на все три дня фестиваля.</li>
+        <li>Возврат билетов возможен не позднее чем за 48 часов до начала фестиваля.</li>
+        <li>Дети до 7 лет — бесплатно.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="paymentModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Оплата заказа</h3>
+      <button class="close-modal" onclick="closeModal()">×</button>
+    </div>
+    <form class="payment-form" id="paymentForm">
+      <div class="form-group">
+        <label for="card-number">Номер карты:</label>
+        <input type="text" id="card-number" placeholder="0000 0000 0000 0000" maxlength="19" required inputmode="numeric">
+      </div>
+
+      <div class="card-row">
+        <div class="form-group">
+          <label for="card-expiry">Срок действия:</label>
+          <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" inputmode="numeric" required>
+        </div>
+
+        <div class="form-group">
+          <label for="card-cvv">CVV:</label>
+          <input type="text" id="card-cvv" placeholder="123" maxlength="3" inputmode="numeric" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="card-holder">Имя держателя карты:</label>
+        <input type="text" id="card-holder" placeholder="IVAN IVANOV" inputmode="text" required>
+      </div>
+
+      <div class="form-group">
+        <label>Сумма к оплате:</label>
+        <input type="text" id="total-amount" readonly style="font-weight: 700; font-size: 1.2rem; color: #4CAF50;">
+      </div>
+
+      <button type="submit" class="confirm-btn">Подтвердить оплату</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Музыкальный фестиваль | Все права защищены</p>
+  <p>
+    <a href="mailto:info@festival.ru">info@festival.ru</a>
+    |
+    <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+  </p>
+  <p>Следите за новостями в наших социальных сетях:</p>
+  <div class="social-links">
+    <a
+      href="https://vk.com/festival"
+      target="_blank"
+      rel="noopener"
+    >ВКонтакте
+    </a>
+    <a
+      href="https://t.me/festival"
+      target="_blank"
+      rel="noopener"
+    >Telegram
+    </a>
+    <a
+      href="https://dzen.ru/festival"
+      target="_blank"
+      rel="noopener"
+    >Дзен
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
